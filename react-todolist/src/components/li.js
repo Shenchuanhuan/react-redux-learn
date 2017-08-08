@@ -7,8 +7,10 @@ class Li extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   //input勾选
-  handleSelect() {
-    console.log(1)
+  handleSelect(num) {
+    if (this.props.onClick) {
+      this.props.onClick(num);
+    }
   }
 
   //点击li选择
@@ -25,7 +27,7 @@ class Li extends Component {
         className="todolist-li" 
         onClick={this.handleClick}
       >
-        <input type="checkbox"/>
+        <input type="checkbox" onClick={()=>this.handleSelect(num)}/>
         <span>{text}</span>
       </li>
     )

@@ -15,6 +15,7 @@ class App extends Component {
       lists: []
     }
     this.handleAddList = this.handleAddList.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   //添加项
@@ -23,6 +24,20 @@ class App extends Component {
     lists.push(value);
     this.setState({
       lists
+    })
+  }
+  //列表点击事件
+  handleClick(num) {
+    const { lists } = this.state;
+    let arr = [];
+    arr = lists.map(item => {
+        if (item.key === num) {
+          item.checked = !item.checked;
+        }
+        return item;
+    })
+    this.setState({
+      lists: arr
     })
   }
   render() {
@@ -39,7 +54,7 @@ class App extends Component {
           onAddList={this.handleAddList}
          ></Input>
         </div>
-        <Ul>{lists}</Ul>
+        <Ul onClick={this.handleClick}>{lists}</Ul>
       </div>
     );
   }

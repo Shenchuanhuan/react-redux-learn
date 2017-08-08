@@ -1,4 +1,5 @@
-body,ul {
+/*总体样式*/
+body, ul {
   margin: 0;
   padding: 0;
 }
@@ -24,7 +25,16 @@ li {
   border-radius: 5px;
   text-indent: 5px;
 }
-
+button {
+  height: 30px;
+  line-height: 30px;
+  width: 50px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 30px;
+  cursor: pointer;
+}
 /*列表样式*/
 .todolist-ul {
   margin-top: 20px;
@@ -41,19 +51,23 @@ li {
   line-height: 50px;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   border: 1px solid #000;
   border-radius: 5px;
 }
+[data-checked='true'] {
+  text-decoration: line-through;
+}
 .todolist-li > input {
-  width: 50px;
-  height: 100%;
+  width: 30px;
   text-align: center;
   margin-right: 10px;
 }
 .todolist-li > span {
-  text-indent: 10px;
   display: inline-block;
   height: 100%;
   width: 100%;
   text-align:left;
 }
+
+/*footer样式*/
