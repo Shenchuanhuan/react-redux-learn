@@ -1,3 +1,11 @@
+body,ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
 
 /*list包含层样式*/
 .todolist {
@@ -15,4 +23,37 @@
   border: 1px solid #000;
   border-radius: 5px;
   text-indent: 5px;
+}
+
+/*列表样式*/
+.todolist-ul {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.todolist-li {
+  box-sizing: border-box;
+  width: 400px;
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+.todolist-li > input {
+  width: 50px;
+  height: 100%;
+  text-align: center;
+  margin-right: 10px;
+}
+.todolist-li > span {
+  text-indent: 10px;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  text-align:left;
 }
