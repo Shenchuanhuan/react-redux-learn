@@ -14,8 +14,8 @@ class Li extends Component {
   }
 
   //点击li选择
-  handleClick() {
-    
+  handleClick(num) {
+    this.handleSelect(num);
   }
   
   render() {
@@ -25,9 +25,9 @@ class Li extends Component {
         key={num} 
         data-checked={checked} 
         className="todolist-li" 
-        onClick={this.handleClick}
+        onClick={() => this.handleClick(num)}
       >
-        <input type="checkbox" onClick={()=>this.handleSelect(num)}/>
+        <input type="checkbox" checked={checked} onClick={()=>this.handleSelect(num)}/>
         <span>{text}</span>
       </li>
     )

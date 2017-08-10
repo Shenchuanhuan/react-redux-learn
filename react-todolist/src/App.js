@@ -12,10 +12,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lists: []
+      lists: [],
+      show: 'all'
     }
     this.handleAddList = this.handleAddList.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
+  }
+
+  componentDidMount() {
+    this.lists = [];
   }
 
   //添加项
@@ -29,8 +35,14 @@ class App extends Component {
   //列表点击事件
   handleClick(num) {
     const { lists } = this.state;
+    let _lists = null;
+    if (this.lists.length > 0) {
+      _lists = this.lists;
+    } else {
+      _lists = lists;
+    }
     let arr = [];
-    arr = lists.map(item => {
+    arr = _lists.map(item => {
         if (item.key === num) {
           item.checked = !item.checked;
         }
@@ -40,8 +52,16 @@ class App extends Component {
       lists: arr
     })
   }
+
+  //筛选
+  handleFilter(key) {
+    this.setState({
+      show: key
+    })
+  }
+
   render() {
-    const { lists } = this.state;
+    const { lists, show } = this.state;
     
     return (
       <div className="App">
@@ -54,7 +74,8 @@ class App extends Component {
           onAddList={this.handleAddList}
          ></Input>
         </div>
-        <Ul onClick={this.handleClick}>{lists}</Ul>
+        <Ul onClick={this.handleClick} show={show}>{lists}</Ul>
+        <Footer onFilter={this.handleFilter} onDelete={this.handleDelete}/>
       </div>
     );
   }
